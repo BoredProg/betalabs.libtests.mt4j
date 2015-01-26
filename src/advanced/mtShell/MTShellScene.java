@@ -49,6 +49,7 @@ import org.mt4j.util.opengl.GLFBO;
 
 import processing.core.PApplet;
 import processing.core.PImage;
+
 import scenes.WaterSceneExportObf;
 import advanced.drawing.MainDrawingScene;
 import advanced.flickrMT.FlickrScene;
@@ -122,6 +123,7 @@ public class MTShellScene extends AbstractScene {
 	public MTShellScene(AbstractMTApplication mtApplication, String name) {
 		super(mtApplication, name);
 		this.app = mtApplication;
+                
 		this.hasFBO = GLFBO.isSupported(app);
 //		this.hasFBO = false; // TEST
 		//IF we have no FBO directly switch to scene and ignore setting
