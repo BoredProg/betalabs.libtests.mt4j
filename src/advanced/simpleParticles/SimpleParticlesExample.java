@@ -23,7 +23,8 @@ public class SimpleParticlesExample extends MTApplication {
 	public void startUp() {
 		if (MT4jSettings.getInstance().isOpenGlMode()){
 			addScene(new ParticleTest(this, "Particles test"));			
-		}else{
+		}
+                else{
 			System.err.println("Particle Scene can only be run in opengl mode!");
 		}
 	}
