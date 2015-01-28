@@ -198,6 +198,7 @@ public class MTShellScene extends AbstractScene
             p2.generateAndUseDisplayLists();
             p2.setPickable(false);
             this.getCanvas().addChild(p2);
+                        
         }
 		//BACKGROUND
 
@@ -622,7 +623,8 @@ public class MTShellScene extends AbstractScene
                 if (alpha <= 0.0f)
                 {
                     copyOfImage.pixels[reflectImageIndex] = pa.color(currR, currG, currB, 0.0f);
-                } else
+                } 
+                else
                 {
                     copyOfImage.pixels[reflectImageIndex] = pa.color(currR, currG, currB, Math.round(y * y * y * (0.00003f) - 60)); //WORKS	
                 }
