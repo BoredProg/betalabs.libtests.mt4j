@@ -64,6 +64,9 @@ import advanced.physics.scenes.PhysicsScene;
 import advanced.puzzle.PuzzleScene;
 import advanced.space3D.Space3DScene;
 import advanced.touchTail.TouchTailScene;
+import gov.pnnl.components.visibleComponents.widgets.radialMenu.examples.MTRadialMenuExampleScene;
+import org.mt4j.MTApplication;
+import org.mt4j.components.visibleComponents.shapes.MTRectangle;
 
 /**
  * The Class MTShellScene. A scene which displays other scenes icons and loads
@@ -165,33 +168,42 @@ public class MTShellScene extends AbstractScene
 
 //		this.setClearColor(new MTColor(230,230,230,255));
 //		this.setClearColor(new MTColor(30,30,30,255));
-        this.setClearColor(new MTColor(0, 0, 0, 255));
+        this.setClearColor(new MTColor(255, 255, 255, 255));
 
         //BACKGROUND GRADIENT
         if (this.useBackgroundGradient)
         {
+            MTColor gradientColorA =  new MTColor(36,60,98); //, listWidth, listWidth, listWidth)//MTColor.SILVER;
+            MTColor gradientColorB =  new MTColor(255,255,255);
             Vertex[] vertices = new Vertex[]
             {
-                new Vertex(0, app.height / 3f, 0, 0, 0, 0, 255),
-                new Vertex(app.width, app.height / 3, 0, 0, 0, 0, 255),
-                new Vertex(app.width, app.height / 1.7f, 0, 170, 170, 140, 255),
-                new Vertex(0, app.height / 1.7f, 0, 170, 170, 140, 255),
-                new Vertex(0, app.height / 3, 0, 0, 0, 0, 255),
+                new Vertex(0, app.height / 3f, 0,           (int)gradientColorB.getR(), (int)gradientColorB.getG(), (int)gradientColorB.getB(), 255),
+                new Vertex(app.width, app.height / 3, 0,    (int)gradientColorB.getR(), (int)gradientColorB.getG(), (int)gradientColorB.getB(), 255),
+                
+                new Vertex(app.width, app.height / 1.7f,0,  (int)gradientColorA.getR(), (int)gradientColorA.getG(), (int)gradientColorA.getB(), 255),
+                new Vertex(0, app.height / 1.7f, 0,         (int)gradientColorA.getR(), (int)gradientColorA.getG(), (int)gradientColorA.getB(),255),
+                
+                new Vertex(0, app.height / 3, 0,            (int)gradientColorB.getR(), (int)gradientColorB.getG(), (int)gradientColorB.getB(), 255),          
             };
+            
+            
+            
             MTPolygon p = new MTPolygon(getMTApplication(), vertices);
             p.setName("upper gradient");
             p.setNoStroke(true);
             p.generateAndUseDisplayLists();
             p.setPickable(false);
             this.getCanvas().addChild(p);
+            
+            gradientColorB.setColor(87,110,156);
 
             Vertex[] vertices2 = new Vertex[]
             {
-                new Vertex(0, app.height / 1.7f, 0, 170, 170, 140, 255),
-                new Vertex(app.width, app.height / 1.7f, 0, 170, 170, 140, 255),
-                new Vertex(app.width, app.height, 0, 0, 0, 0, 255),
-                new Vertex(0, app.height, 0, 0, 0, 0, 255),
-                new Vertex(0, app.height / 1.7f, 0, 170, 170, 140, 255),
+                new Vertex(0, app.height / 1.7f, 0,             gradientColorA.getR(), gradientColorA.getG(), gradientColorA.getB(), 255),
+                new Vertex(app.width, app.height / 1.7f, 0,     gradientColorA.getR(), gradientColorA.getG(), gradientColorA.getB(), 255),
+                new Vertex(app.width, app.height, 0,            (int)gradientColorB.getR(), (int)gradientColorB.getG(), (int)gradientColorB.getB(), 255),
+                new Vertex(0, app.height, 0,                    (int)gradientColorB.getR(), (int)gradientColorB.getG(), (int)gradientColorB.getB(), 255),
+                new Vertex(0, app.height / 1.7f, 0,             gradientColorA.getR(), gradientColorA.getG(), gradientColorA.getB(), 255),
             };
             MTPolygon p2 = new MTPolygon(getMTApplication(), vertices2);
             p2.setNoStroke(true);
@@ -216,24 +228,27 @@ public class MTShellScene extends AbstractScene
         list.setNoFill(true);
         list.setNoStroke(true);
 
-        /*
-         //List ends fade images //Background gradient has to be set to false!
-         PImage gradImage = app.loadImage(this.getPathToIcons() + "gradx3.png");
-         MTRectangle grad1 = new MTRectangle(gradImage, app);
-         grad1.setUseDirectGL(true);
-         grad1.setNoStroke(true);
-         grad1.setPickable(false);
-         list.addChild(grad1);
-         grad1.setFillColor(this.getClearColor());
-		
-         MTRectangle grad2 = new MTRectangle(0, listHeight-gradImage.height , gradImage.width, gradImage.height, app);
-         grad2.rotateZ(grad2.getCenterPointLocal(), 180, TransformSpace.LOCAL);
-         grad2.setTexture(gradImage);
-         grad2.setNoStroke(true);
-         grad2.setPickable(false);
-         list.addChild(grad2);
-         grad2.setFillColor(this.getClearColor());
-         */
+        
+        //List ends fade images //Background gradient has to be set to false!
+        if (!useBackgroundGradient)
+        {
+            PImage gradImage = app.loadImage(this.getPathToIcons() + "gradx3.png");
+            MTRectangle grad1 = new MTRectangle(gradImage, app);
+            grad1.setUseDirectGL(true);
+            grad1.setNoStroke(true);
+            grad1.setPickable(false);
+            list.addChild(grad1);
+            grad1.setFillColor(this.getClearColor());
+
+            MTRectangle grad2 = new MTRectangle(0, listHeight - gradImage.height, gradImage.width, gradImage.height, app);
+            grad2.rotateZ(grad2.getCenterPointLocal(), 180, TransformSpace.LOCAL);
+            grad2.setTexture(gradImage);
+            grad2.setNoStroke(true);
+            grad2.setPickable(false);
+            list.addChild(grad2);
+            grad2.setFillColor(this.getClearColor());
+        }
+        
         font = FontManager.getInstance().createFont(app, "SansSerif", 18, MTColor.WHITE);
 
         this.addScene(new ICreateScene()
@@ -382,7 +397,41 @@ public class MTShellScene extends AbstractScene
             }
         }, app.loadImage(this.getPathToIcons() + "earth_s.png"));
 
+        // SEB :
+        this.addScene(new ICreateScene()
+        {
+            public Iscene getNewScene()
+            {
+                return new MTRadialMenuExampleScene((MTApplication) app, "Radial Menu");
+            }
+
+            public String getTitle()
+            {
+                return "Radial Menu";
+            }
+        }, app.loadImage(this.getPathToIcons() + "menu.png"));        
+               
+        
+        // SEB :  Does not add the good scene.. package problem..
+        this.addScene(new ICreateScene()
+        {
+            public Iscene getNewScene()
+            {
+                
+                return new models3D.Models3DScene((MTApplication) app, "Truck 3D", 1);
+            }
+
+            public String getTitle()
+            {
+                return "Truck 3D";
+            }
+        }, app.loadImage(this.getPathToIcons() + "scene3D_truck.png"));        
+        
+             
+        
+        
         getCanvas().addChild(list);
+        
         list.rotateZ(list.getCenterPointLocal(), -90, TransformSpace.LOCAL);
 //		list.setPositionGlobal(new Vector3D(app.width/2f, app.height - list.getHeightXY(TransformSpace.GLOBAL) - 1));
         list.setPositionGlobal(new Vector3D(app.width / 2f, app.height / 2f));
@@ -394,7 +443,8 @@ public class MTShellScene extends AbstractScene
         if (this.hasFBO)
         {
             this.setTransition(new BlendTransition(app, 730));
-        } else
+        } 
+        else
         {
             this.setTransition(new FadeTransition(app, 730));
         }
@@ -446,8 +496,7 @@ public class MTShellScene extends AbstractScene
                         getCanvas().addChild(sceneWindow);
                     } else
                     {
-						//No FBO available -> change to the new scene fullscreen directly
-
+                        //No FBO available -> change to the new scene fullscreen directly
                         float menuWidth = 64;
                         float menuHeight = 64;
                         MTSceneMenu sceneMenu
