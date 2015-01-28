@@ -77,6 +77,8 @@ public class Space3DScene extends AbstractScene {
 		super(mtApplication, name);
 		this.pa = mtApplication;
 		
+                
+                
 		if (!MT4jSettings.getInstance().isOpenGlMode()){
 			System.err.println("Scene only usable when using the OpenGL renderer! - See settings.txt");
         	return;
