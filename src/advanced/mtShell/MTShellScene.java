@@ -57,14 +57,20 @@ import scenes.WaterSceneExportObf;
 import advanced.drawing.MainDrawingScene;
 import advanced.flickrMT.FlickrScene;
 import advanced.fluidSimulator.FluidSimulationScene;
+import advanced.interaction.minim.AudioTrackScene;
 import advanced.models3D.Models3DScene;
 import advanced.modestMapsMT.MapsScene;
 import advanced.physics.scenes.AirHockeyScene;
 import advanced.physics.scenes.PhysicsScene;
 import advanced.puzzle.PuzzleScene;
+import advanced.simpleParticles.ParticleTestScene;
+import advanced.simpleParticles.SimpleParticlesExample;
 import advanced.space3D.Space3DScene;
 import advanced.touchTail.TouchTailScene;
+import basic.mtGestures.MTGesturesExampleScene;
+import basic.svgExample.SVGScene;
 import gov.pnnl.components.visibleComponents.widgets.radialMenu.examples.MTRadialMenuExampleScene;
+import models3D.Truck3DScene;
 import org.mt4j.MTApplication;
 import org.mt4j.components.visibleComponents.shapes.MTRectangle;
 
@@ -412,23 +418,70 @@ public class MTShellScene extends AbstractScene
         }, app.loadImage(this.getPathToIcons() + "menu.png"));        
                
         
-        // SEB :  Does not add the good scene.. package problem..
+        // SEB :  video path problem..
         this.addScene(new ICreateScene()
         {
             public Iscene getNewScene()
             {
                 
-                return new models3D.Models3DScene((MTApplication) app, "Truck 3D", 1);
+                return new SVGScene((MTApplication) app, "Scalable Vector Graphics Drawing");
             }
 
             public String getTitle()
             {
-                return "Truck 3D";
+                return "Scalable SVG";
             }
-        }, app.loadImage(this.getPathToIcons() + "scene3D_truck.png"));        
+        }, app.loadImage(this.getPathToIcons() + "svg.png"));    
+        
+        
+        // Simple Particles
+        this.addScene(new ICreateScene()
+        {
+            public Iscene getNewScene()
+            {
+                
+                return new ParticleTestScene( app, "Simple Particles Drawing");
+            }
+
+            public String getTitle()
+            {
+                return "Simple Particles";
+            }
+        }, app.loadImage(this.getPathToIcons() + "particle.png"));   
         
              
+        // Audio Player
+        this.addScene(new ICreateScene()
+        {
+            public Iscene getNewScene()
+            {
+                
+                return new AudioTrackScene(app, "Audio-track Scene")       ;
+            }
+            
+
+            public String getTitle()
+            {
+                return "Audio Track Scene";
+            }
+        }, app.loadImage(this.getPathToIcons() + "audio_player.png"));   
+
+        // Basic Gestures
+        this.addScene(new ICreateScene()
+        {
+            public Iscene getNewScene()
+            {
+                
+                return new MTGesturesExampleScene(app, "Basic Gestures Scene");
+            } 
+
+            public String getTitle()
+            {
+                return "Basic Gestures Scene";
+            }
+        }, app.loadImage(this.getPathToIcons() + "basics.png"));           
         
+ 
         
         getCanvas().addChild(list);
         

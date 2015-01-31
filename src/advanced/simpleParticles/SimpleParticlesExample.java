@@ -22,14 +22,14 @@ public class SimpleParticlesExample extends MTApplication {
 	@Override
 	public void startUp() {
 		if (MT4jSettings.getInstance().isOpenGlMode()){
-			addScene(new ParticleTest(this, "Particles test"));			
+			addScene(new ParticleTestScene(this, "Particles test"));			
 		}
                 else{
 			System.err.println("Particle Scene can only be run in opengl mode!");
 		}
 	}
 	
-	private class ParticleTest extends AbstractScene{
+	public class ParticleTest extends AbstractScene{
 		private String path = "advanced" + AbstractMTApplication.separator + "simpleParticles" + AbstractMTApplication.separator + "data" + AbstractMTApplication.separator;
 		
 		public ParticleTest(AbstractMTApplication mtApplication, String name) {

@@ -16,7 +16,7 @@ public class StartFlickrExample extends MTApplication{
 	
 	@Override
 	public void startUp(){
-		this.addScene(new FlickrScene(this, "Flickr Scene"));
+		this.addScene(new FlickrSebScene(this, "Flickr Scene"));
 	}
 	
 }

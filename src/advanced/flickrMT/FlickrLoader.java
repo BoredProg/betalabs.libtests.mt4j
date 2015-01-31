@@ -63,7 +63,7 @@ public class FlickrLoader extends AbstractProgressThread {
 //	private FlickrHelper flickHelper;
 	
 	/** The search parameters. */
-private SearchParameters searchParameters;
+        private SearchParameters searchParameters;
 	
 	/** The foto count. */
 	private int fotoCount;

@@ -79,7 +79,7 @@ public class FluidSimulationScene extends AbstractScene{
         	return;
         }
 		
-        //pa.hint( PApplet.ENABLE_OPENGL_4X_SMOOTH );    // Turn on 4X antialiasing
+        //app.hint( PApplet.ENABLE_OPENGL_4X_SMOOTH );    // Turn on 4X antialiasing
         invWidth = 1.0f/mtApplication.width;
         invHeight = 1.0f/mtApplication.height;
         aspectRatio = mtApplication.width * invHeight;

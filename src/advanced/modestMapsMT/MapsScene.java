@@ -165,7 +165,7 @@ public class MapsScene extends AbstractScene implements MouseWheelListener, Mous
 		map = new TestInteractiveMap(mtApplication, mapProvider);
 		map.setName("map");
 		map.MAX_IMAGES_TO_KEEP = 256;
-		map.sc = 4;  //Initial map scale
+		map.sc = 6;  //Initial map scale
 		//Map gestures
 		map.registerInputProcessor(new DragProcessor(mtApplication));
 		map.addGestureListener(DragProcessor.class, new MapDrag());

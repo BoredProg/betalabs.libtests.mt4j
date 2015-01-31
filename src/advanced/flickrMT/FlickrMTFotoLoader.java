@@ -90,6 +90,7 @@ public class FlickrMTFotoLoader extends FlickrLoader {
 	 */
 	public MTImage[] getMtFotos() {
 		return this.mtFotos.toArray(new MTImage[this.mtFotos.size()]);
+                
 	}
 
 	public boolean isGetHighResolution() {
