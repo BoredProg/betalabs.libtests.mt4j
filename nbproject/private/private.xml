@@ -3,8 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Sebastien/Documents/NetBeans%20Projects/betalabs.libtests.mt4j/src/advanced/physics/util/PhysicsHelper.java</file>
             <file>file:/C:/Users/Sebastien/Documents/NetBeans%20Projects/betalabs.libtests.mt4j/src/advanced/physics/physicsShapes/PhysicsPolygon.java</file>
+            <file>file:/C:/Users/Sebastien/Documents/NetBeans%20Projects/betalabs.libtests.mt4j/src/advanced/physics/scenes/AirHockeyScene.java</file>
+            <file>file:/C:/Users/Sebastien/Documents/NetBeans%20Projects/betalabs.libtests.mt4j/src/advanced/physics/scenes/PhysicsScene.java</file>
             <file>file:/C:/Users/Sebastien/Documents/NetBeans%20Projects/betalabs.libtests.mt4j/src/advanced/mtShell/MTShellScene.java</file>
+            <file>file:/C:/Users/Sebastien/Documents/NetBeans%20Projects/betalabs.libtests.mt4j/src/advanced/physics/util/UpdatePhysicsAction.java</file>
+            <file>file:/C:/Users/Sebastien/Documents/NetBeans%20Projects/betalabs.libtests.mt4j/src/advanced/physics/physicsShapes/PhysicsCircle.java</file>
         </group>
     </open-files>
 </project-private>

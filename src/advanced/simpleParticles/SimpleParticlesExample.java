@@ -22,41 +22,12 @@ public class SimpleParticlesExample extends MTApplication {
 	@Override
 	public void startUp() {
 		if (MT4jSettings.getInstance().isOpenGlMode()){
-			addScene(new ParticleTest(this, "Particles test"));			
+			addScene(new ParticleTestScene(this, "Particles test"));			
 		}else{
 			System.err.println("Particle Scene can only be run in opengl mode!");
 		}
 	}
 	
-	private class ParticleTest extends AbstractScene{
-		private String path = "advanced" + AbstractMTApplication.separator + "simpleParticles" + AbstractMTApplication.separator + "data" + AbstractMTApplication.separator;
-		
-		public ParticleTest(AbstractMTApplication mtApplication, String name) {
-			super(mtApplication, name);
-			
-			final MTParticleSystem mtPs = new MTParticleSystem(getMTApplication(), 0,0, mtApplication.width, mtApplication.height);
-			mtPs.attachCamera(new MTCamera(getMTApplication()));
-			mtPs.setPickable(false);
-			getCanvas().addChild(mtPs);
-			final PImage texture = getMTApplication().loadImage(path + "particle.png");
-			
-			getCanvas().addInputListener(new IMTInputEventListener() {
-				public boolean processInputEvent(MTInputEvent inEvt) {
-					if (inEvt instanceof AbstractCursorInputEvt) {
-						AbstractCursorInputEvt ce = (AbstractCursorInputEvt) inEvt;
-						mtPs.getParticleSystem().addParticle(new ImageParticle(getMTApplication(), new PVector(ce.getX(), ce.getY()), texture));
-					}
-					return false;
-				}
-			});
-		}
-		
-		public void onEnter() {
-			getMTApplication().frameRate(60);
-		}
-		
-		public void onLeave() {	}
-
-	}
+	
 
 }
